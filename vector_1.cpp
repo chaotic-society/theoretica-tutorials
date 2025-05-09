@@ -1,8 +1,6 @@
 
 ///
 /// this program presents various uses of the class vector
-/// g++ vector_1.cpp -std=c++14 -I./include/theoretica/ -Wall -fopenmp -o vector_1
-/// ./build.sh vector_1
 ///
 
 #include <iostream>
