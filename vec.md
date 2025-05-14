@@ -88,6 +88,13 @@ v_size = myVector.size();
 
 ### Static vectors
 
+Comparison operators equality and inequality:
+```cpp
+v1 == v2
+
+v1 != v2
+```
+
 Identity operator:
 
 ```cpp
@@ -180,13 +187,6 @@ v1 = v2.normalized();
 
 // Second method
 v1.normalize();
-```
-
-Comparison operators equality and inequality:
-```cpp
-v1 == v2
-
-v1 != v2
 ```
 
 ### Dynamic vectors
