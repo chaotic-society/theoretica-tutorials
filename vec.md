@@ -53,7 +53,6 @@ They are not different from the equivalent vec<Type, N>.
 
 ## Vector manipulation
 
-### Static vectors
 
 The i-th component of a vector `myVector` can be accessed using:
 
@@ -61,19 +60,18 @@ The i-th component of a vector `myVector` can be accessed using:
 // Standard method
 v_i = myVector[i];
 
-// Alternatives:
+// Alternative:
 v_i = myVector.at(i);
-v_i = myVector.get(i);
 ```
 
-The i-th component can be modified using:
+The `at` method enables bound checking: it throws an exception if `i>N`. These methods also allow to modify the i-th component:
 
 ```cpp
 // Standard method
 myVector[i] = v_i;
 
-// Alternatives:
-myVector.set(i, v_i);
+// Alternative
+myVector.at(i) = v_i;
 ```
 
 The size of the vector can be accessed using:
@@ -82,35 +80,18 @@ The size of the vector can be accessed using:
 v_size = myVector.size();
 ```
 
-### Dynamic vectors
-
 ## Vector operations
 
-### Static vectors
-
-Comparison operators equality and inequality:
-```cpp
-v1 == v2
-
-v1 != v2
-```
-
-Identity operator:
+Opposite vector:
 
 ```cpp
-v1 = +v2;
+v1 = -v2;
 ```
 
 Vector sum:
 
 ```cpp
 v1 = v2 + v3;
-```
-
-Opposite vector:
-
-```cpp
-v1 = -v2;
 ```
 
 Vector subtraction:
@@ -179,7 +160,7 @@ Square norm:
 x = v2.sqr_norm();
 ```
 
-Normalization of a vector can be done in two ways: the first assigns the normalized first vector to a second, the second overwrites the first with its normalization.
+Vector normalization can be done in two ways. The `normalized()` method returns the normalized vector without modifying it, meanwhile the `normalize()` method overwrites the vector itself with its normalization.
 
 ```cpp
 // First method
@@ -188,5 +169,3 @@ v1 = v2.normalized();
 // Second method
 v1.normalize();
 ```
-
-### Dynamic vectors
