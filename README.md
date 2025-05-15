@@ -3,4 +3,4 @@ Tutorials and example programs for Theoretica
 
 ## algebra
 
-### [vec.h](https://github.com/chaotic-society/theoretica-tutorials/blob/main/vec.md)
+### [vec.h](https://github.com/chaotic-society/theoretica-tutorials/blob/main/vec.md): vector creation, manipulation and operations
