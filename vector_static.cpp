@@ -115,17 +115,7 @@ int main() {
     	
    	scal_result = third.at(4);
    	
-   	std::cout << "5-th element v1" << std::endl;
-    	
-    	std::cout << scal_result << std::endl;
- 
- 	std::cout << std::endl;
- 	
- 	// get i-th element
-    	
-   	scal_result = third.get(4);
-   	
-   	std::cout << "5-th element v2" << std::endl;
+   	std::cout << "5-th element" << std::endl;
     	
     	std::cout << scal_result << std::endl;
  
@@ -133,7 +123,7 @@ int main() {
  	
  	// set i-th element
  	
-   	third.set(4, 3.1);
+   	third[4] = 3.1;
    	
    	std::cout << "set 5-th element" << std::endl;
     	
