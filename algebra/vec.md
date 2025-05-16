@@ -1,10 +1,12 @@
 # Tutorial: vec.h
 
+Vectors represent ordered sets of elements of a certain type. They are implemented in Theoretica as the `vec` class in two different forms. They can be used to perform linear algebra operations along with matrices, such as dot and cross products and matrix-vector multiplication.
+
 ## Vector construction
+Vectors can be both allocated statically and dynamically, using two very similar notations.
 
 ### Static vectors
-
-N-dimensional real and complex static vectors are declared in the following way:
+A generic, statically allocated, N-dimensional vector with elements of type `T` is implemented by `vec<T, N>`. Real and complex static vectors are declared in the following way:
 
 ```cpp
 vec<real, N> u;
@@ -14,11 +16,11 @@ vec<complex<>, N> w;
 They can then be initialized in multiple ways:
 
 ```cpp
-// Filling it with 0s
-u = vec<real, N>();
+// Fill a 3d vector with 0s
+u = vec<real, 3>();
 
 // Filling it with 3s
-u = vec<real, N>(3);
+u = vec<real, 2>(3.0);
 
 // Initializing values from a list
 u = {3, 5, 9, -5.4, 3, 2.5, 0, -3};
@@ -48,8 +50,24 @@ cvec4 w4;
 
 They are not different from the equivalent vec<Type, N>.
 
-
 ### Dynamic vectors
+Vectors can be allocated dynamically in a very similar way, but instead of specifying their size by template, it is done as an argument. For example, a N-dimensional vector can be specified with dynamic allocation using its constructor:
+
+```cpp
+// Create a 3D vector with zeroes
+vec<real> v1 = vec<real>(3);
+// Fill a 3D vector with 1s
+vec<real> v2 = vec<real>(3, 1.0);
+```
+
+Vectors can be initialized from their elements:
+
+```cpp
+// Initialize a vector from elements
+vec<real> v = {1.5, -3.0, 0., 4.0};
+```
+
+In general, memory allocation and deallocation are handled completely automatically inside the class itself.
 
 ## Vector manipulation
 
