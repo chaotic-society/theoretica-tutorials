@@ -106,7 +106,7 @@ Opposite vector:
 v1 = -v2;
 ```
 
-Vector sum:
+Vector addition:
 
 ```cpp
 v1 = v2 + v3;
