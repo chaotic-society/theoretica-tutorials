@@ -6,7 +6,7 @@ Matrices represent tables of elements of a certain type. They are implemented in
 Matrices can be both allocated statically and dynamically, using two very similar notations.
 
 ### Static matrices
-A generic, statically allocated, N×M matrix with elements of type `T` is implemented by `vec<T, N, M>`. Real and complex static matrices are declared in the following way:
+A generic, statically allocated, N×M matrix with elements of type `T` is implemented by `mat<T, N, M>`. Real and complex static matrices are declared in the following way:
 
 ```cpp
 mat<real, N, M> A;
