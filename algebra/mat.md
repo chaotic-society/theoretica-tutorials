@@ -56,7 +56,7 @@ They are not different from the equivalent mat<Type, N, N>.
 
 ### Dynamic matrices
 
-Matrices can be allocated dynamically in a very similar way, but instead of specifying their size by template, it is done as an argument. For example, a N-dimensional matrix can be specified with dynamic allocation using its constructor:
+Matrices can be allocated dynamically in a very similar way, but instead of specifying their size by template, it is done as an argument. For example, a N×M matrix can be specified with dynamic allocation using its constructor:
 
 ```cpp
 // Create a 3x3 matrix with zeroes
