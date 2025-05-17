@@ -68,7 +68,6 @@ mat<real> A = mat<real>(3, 3, 1.0);
 Dynamic matrices can be also initialized from their elements:
 
 ```cpp
-// Initialize values from lists
 A = {
 {3.0, 5.2, 9.1},
 {0.0, -3.0, 1.5},
