@@ -99,7 +99,7 @@ myMatrix(i, j) = M_ij;
 myMatrix.at(i, j) = M_ij;
 ```
 
-The number of rows and columns of the matrix can be accessed using the `rows()` and `cols()` methods:
+The number of rows and columns of the matrix can be accessed using the `rows` and `cols` methods:
 
 ```cpp
 nRows = myMatrix.rows();
@@ -180,7 +180,7 @@ Transpose (of a square matrix):
 A = B.transpose();
 ```
 
-Inversion of a square matrix can be done in two ways. The `inverse()` method returns the inverse matrix without modifying it, meanwhile the `invert()` method overwrites the matrix itself with its inverse.
+Inversion of a square matrix can be done in two ways. The `inverse` method returns the inverse matrix without modifying it, meanwhile the `invert` method overwrites the matrix itself with its inverse.
 
 ```cpp
 // First method
