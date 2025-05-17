@@ -177,7 +177,7 @@ Square norm:
 x = v2.sqr_norm();
 ```
 
-Vector normalization can be done in two ways. The `normalized()` method returns the normalized vector without modifying it, meanwhile the `normalize()` method overwrites the vector itself with its normalization.
+Vector normalization can be done in two ways. The `normalized` method returns the normalized vector without modifying it, meanwhile the `normalize` method overwrites the vector itself with its normalization.
 
 ```cpp
 // First method
