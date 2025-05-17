@@ -64,7 +64,7 @@ int main() {
     	
     	// declaring a real 3D vector filled with 2
     	
-    	vec3 fourth = vec3(3);
+    	vec3 fourth = vec3(2.0);
     	
     		// printing it
     
