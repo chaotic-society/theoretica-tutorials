@@ -64,7 +64,6 @@ vec<real> v2 = vec<real>(3, 1.0);
 Vectors can be also initialized from their elements:
 
 ```cpp
-// Initialize values from a list
 vec<real> v = {1.5, -3.0, 0., 4.0};
 ```
 
