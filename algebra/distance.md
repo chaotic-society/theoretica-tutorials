@@ -40,6 +40,12 @@ x = linf_norm(v);
 
 ## Distances
 
+The Manhattan distance between two N-dimensional real vectors ($\mathcal{l}^1$ norm of their difference) is calculated through the `manhattan_distance` method:
+
+```cpp
+x = manhattan_distance(v, w);
+```
+
 The Euclidean distance between two N-dimensional real vectors ($\mathcal{l}^2$ norm of their difference) can be calculated in two ways. The dedicated method would be `euclidean_distance`, however the `distance` method will calculate the Euclidean distance when the arguments are two real vectors:
 
 ```cpp
@@ -63,6 +69,12 @@ When given two real scalars `a` and `b`, this method will return:
 \left[ \left( |a - b| \right)^p \right]^{\frac{1}{p}}
 ```
 
+The Chebyshev distance between two N-dimensional real vectors ($\mathcal{l}^{\infty}$ norm of their difference) is calculated through the `chebyshev_distance` method:
+
+```cpp
+x = chebyshev_distance(v, w);
+```
+
 The Hermitian distance between two N-dimensional complex vectors `u` and `z`:
 
 ```math
@@ -82,18 +94,6 @@ When given two complex scalars `a` and `b` the `distance` method will return the
 
 ```math
 x = \sqrt{\left(a - b\right) \cdot \left(a - b\right)^*}
-```
-
-The Manhattan distance between two N-dimensional real vectors ($\mathcal{l}^1$ norm of their difference) is calculated through the `manhattan_distance` method:
-
-```cpp
-x = manhattan_distance(v, w);
-```
-
-The Chebyshev distance between two N-dimensional real vectors ($\mathcal{l}^{\infty}$ norm of their difference) is calculated through the `manhattan_distance` method:
-
-```cpp
-x = manhattan_distance(v, w);
 ```
 
 
