@@ -1,6 +1,7 @@
 # Tutorial: distance.h
 
 Distances and norms of generic vectors, with real or complex elements. The element type of the vectors needs to have a function `abs()` which returns a real number.
+All these methods use the `algebra` namespace.
 
 ## Norms
 
