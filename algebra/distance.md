@@ -1,11 +1,10 @@
 # Tutorial: distance.h
 
-Distances and norms of generic vectors, with or complex elements. The element type of the vectors needs to have a function `abs()` which returns a real number.
-All these methods use the `algebra` namespace.
+Distances and norms of generic vectors, with real or complex elements. The element type of the vectors needs to have a function `abs()` which returns a real number. All these methods use the `algebra` namespace and it is assumed that `using namespace th::algebra` has been used.
 
 ## Norms
 
-The $\mathcal{l}^p$ norm of a N-dimensional vector `v`: 
+The $\mathcal{l}^p$ norm of an N-dimensional vector `v`: 
 
 ```math
 x = \left( \sum_{i=1}^{n} |v_i|^p \right)^{\frac{1}{p}} 
@@ -30,7 +29,7 @@ x = l2_norm(v);
 The $\mathcal{l}^{\infty}$ norm of a vector `v`: 
 
 ```math
-x = \max\left( \left\{ |v_i| \right\} \right)
+x = \max \left\{ |v_i| \right\}
 ```
 
 is calculated through the `linf_norm` method:
@@ -67,7 +66,7 @@ x = minkowski_distance(v, w, p);
 When given two scalars `a` and `b`, this method will return: 
 
 ```math
-\left[ \left( |a - b| \right)^p \right]^{\frac{1}{p}}
+\left(|a - b|^p \right)^{\frac{1}{p}}
 ```
 
 The Chebyshev distance between two vectors ($\mathcal{l}^{\infty}$ norm of their difference) is calculated through the `chebyshev_distance` method:
