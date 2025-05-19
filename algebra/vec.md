@@ -1,9 +1,11 @@
 # Tutorial: vec.h
 
-Vectors represent ordered sets of elements of a certain type. They are implemented in Theoretica as the `vec` class in two different forms. They can be used to perform linear algebra operations along with matrices, such as dot and cross products and matrix-vector multiplication.
+> Vectors represent ordered sets of elements of a certain type.
+
+They are implemented in Theoretica as the `vec` class in two different forms. They can be used to perform linear algebra operations along with matrices, such as dot and cross products and matrix-vector multiplication. In the following code snippets, it is assumed that `using namespace th` has been used.
 
 ## Vector construction
-Vectors can be both allocated statically and dynamically, using two very similar notations.
+Vectors can be both allocated statically and dynamically, using two very similar notations. Both cases are implemented by the `vec<T, N>`, where `N = 0` is specialized for dynamically allocated vectors.
 
 ### Static vectors
 A generic, statically allocated, N-dimensional vector with elements of type `T` is implemented by `vec<T, N>`. Real and complex static vectors are declared in the following way:
@@ -13,7 +15,7 @@ vec<real, N> u;
 vec<complex<>, N> w;
 ```
 
-They can then be initialized in multiple ways:
+They can be initialized in multiple ways:
 
 ```cpp
 // Fill a 3d vector with 0s
@@ -48,7 +50,7 @@ cvec3 w3;
 cvec4 w4;
 ```
 
-They are not different from the equivalent vec<Type, N>.
+They are not different from the equivalent `vec<Type, N>` for specialized `Type` and `N`.
 
 ### Dynamic vectors
 
@@ -69,7 +71,7 @@ vec<real> v = {1.5, -3.0, 0., 4.0};
 
 In general, memory allocation and deallocation are handled completely automatically inside the class itself.
 
-## Vector manipulation
+## Vector operations
 
 The i-th component of a vector `myVector` can be accessed using:
 
@@ -105,51 +107,31 @@ Opposite vector:
 v1 = -v2;
 ```
 
-Vector addition:
+Vector addition and subtraction:
 
 ```cpp
 v1 = v2 + v3;
-```
-
-Vector subtraction:
-
-```cpp
 v1 = v2 - v3;
 ```
 
-Multiplication by a scalar `x`:
+Multiplication and division by a scalar `x`:
 
 ```cpp
 v1 = x * v2;
-```
-
-Division by a scalar:
-
-```cpp
 v1 = v2 / x;
 ```
 
-Assignment by addition:
+In-place addition and subtraction:
 
 ```cpp
 v1 += v2;
-```
-
-Assignment by subtraction:
-
-```cpp
 v1 -= v2;
 ```
 
-Assignment by multiplication by a scalar:
+In-place multiplication and division by a scalar:
 
 ```cpp
 v1 *= x;
-```
-
-Assignment by division by a scalar:
-
-```cpp
 v1 /= x;
 ```
 
@@ -159,10 +141,11 @@ Dot product:
 x = v1 * v2;
 ```
 
-Cross product (between 3-dimensional vectors `v2` and `v3`):
+Cross product (only for 3-dimensional vectors):
 
 ```cpp
 v1 = v2.cross(v3);
+v1 = algebra::cross(v2, v3);
 ```
 
 Norm:
@@ -171,7 +154,7 @@ Norm:
 x = v2.norm();
 ```
 
-Square norm:
+Sometimes it can be useful to use the square norm instead, avoiding a square root calculation:
 
 ```cpp
 x = v2.sqr_norm();
@@ -186,3 +169,12 @@ v1 = v2.normalized();
 // Second method
 v1.normalize();
 ```
+
+## Parallelization
+Theoretica supports element-wise evaluation of functions, which means that a certain function is computed for each element of a vector. This should generally be preferred because it is optimized using OpenMP, making the call faster. The `parallel` module implements common function, such as the square root:
+
+```cpp
+v = parallel::sqrt(w);
+```
+
+It is also possible to use an arbitrary function with `apply_function`. Note that the module works also with other element types than real, such as complex numbers.
