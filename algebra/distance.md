@@ -1,11 +1,11 @@
 # Tutorial: distance.h
 
-Distances and norms of generic vectors, with real or complex elements. The element type of the vectors needs to have a function `abs()` which returns a real number.
+Distances and norms of generic vectors, with or complex elements. The element type of the vectors needs to have a function `abs()` which returns a real number.
 All these methods use the `algebra` namespace.
 
 ## Norms
 
-The $\mathcal{l}^p$ norm of a N-dimensional real vector `v`: 
+The $\mathcal{l}^p$ norm of a N-dimensional vector `v`: 
 
 ```math
 x = \left( \sum_{i=1}^{n} |v_i|^p \right)^{\frac{1}{p}} 
@@ -27,7 +27,7 @@ x = l1_norm(v);
 x = l2_norm(v);
 ```
 
-The $\mathcal{l}^{\infty}$ norm of a N-dimensional real vector `v`: 
+The $\mathcal{l}^{\infty}$ norm of a vector `v`: 
 
 ```math
 x = \max\left( \left\{ |v_i| \right\} \right)
@@ -41,13 +41,13 @@ x = linf_norm(v);
 
 ## Distances
 
-The Manhattan distance between two N-dimensional real vectors ($\mathcal{l}^1$ norm of their difference) is calculated through the `manhattan_distance` method:
+The Manhattan distance between two vectors ($\mathcal{l}^1$ norm of their difference) is calculated through the `manhattan_distance` method:
 
 ```cpp
 x = manhattan_distance(v, w);
 ```
 
-The Euclidean distance between two N-dimensional real vectors ($\mathcal{l}^2$ norm of their difference) can be calculated in two ways. The dedicated method would be `euclidean_distance`, however the `distance` method will calculate the Euclidean distance when the arguments are two real vectors:
+The Euclidean distance between two vectors ($\mathcal{l}^2$ norm of their difference) can be calculated using the `euclidean_distance` method or the `distance` method:
 
 ```cpp
 // First method
@@ -57,45 +57,57 @@ x = euclidean_distance(v, w);
 x = distance(v, w); 
 ```
 
-When given two real scalars these two methods will return the absolute value of their difference.  
-The Minkowski distance between two N-dimensional real vectors ($\mathcal{l}^p$ norm of their difference) is calculated through the `minkowski_distance` method:
+When given two scalars these two methods will return the absolute value of their difference.  
+The Minkowski distance between two vectors ($\mathcal{l}^p$ norm of their difference) is calculated through the `minkowski_distance` method:
 
 ```cpp
 x = minkowski_distance(v, w, p);
 ```
 
-When given two real scalars `a` and `b`, this method will return: 
+When given two scalars `a` and `b`, this method will return: 
 
 ```math
 \left[ \left( |a - b| \right)^p \right]^{\frac{1}{p}}
 ```
 
-The Chebyshev distance between two N-dimensional real vectors ($\mathcal{l}^{\infty}$ norm of their difference) is calculated through the `chebyshev_distance` method:
+The Chebyshev distance between two vectors ($\mathcal{l}^{\infty}$ norm of their difference) is calculated through the `chebyshev_distance` method:
 
 ```cpp
 x = chebyshev_distance(v, w);
 ```
 
-The Hermitian distance between two N-dimensional complex vectors `u` and `z`:
-
-```math
-x = \sqrt{\left(\vec{u} - \vec{z}\right) \cdot \left(\vec{u} - \vec{z}\right)^*}
-```
-
-can be calculated in two ways. The dedicated method would be `hermitian_distance`, however the `distance` method will calculate the Euclidean distance when the arguments are two complex vectors:
+The `discrete_distance` method, when applied to two vectors `v`, `w`, will return `1` if at least one component of `v - w` has absolute value greater than `tolerance`; if not it will return `0`
 
 ```cpp
-// First method
-x = hermitian_distance(u, z);
-
-// Second method
-x = distance(u, z); 
+x = discrete_distance(v, w, tolerance);
 ```
-When given two complex scalars `a` and `b` the `distance` method will return the absolute value of their difference.  
+
+The Canberra distance between two vectors `v`, `w`:
 
 ```math
-x = \sqrt{\left(a - b\right) \cdot \left(a - b\right)^*}
+x = \sum_{i=1}^{n} \frac{|v_i - w_i|}{|v_i|+|w_i|}
 ```
 
+is calculated through the `canberra_distance` method:
 
+```cpp
+x = canberra_distance(v, w);
+```
 
+The cosine similarity between two real vectors `v`, `w`:
+
+```math
+x = \frac{\vec{v} \cdot \vec{u}}{\sqrt{\sum_{i=1}^{n}|v_i|^2}+\sqrt{\sum_{i=1}^{n}|w_i|^2}}
+```
+
+is calculated through the `cosine_distance` method:
+
+```cpp
+x = cosine_distance(v, w);
+```
+
+The `hamming_distance` method, when applied to two vectors `v`, `w`, will return the number of components of `v - w` which have absolute value greater than `tolerance`:
+
+```cpp
+x = hamming_distance(v, w, tolerance);
+```
