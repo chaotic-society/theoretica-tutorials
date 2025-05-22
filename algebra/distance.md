@@ -75,7 +75,7 @@ The Chebyshev distance between two vectors ($\mathcal{l}^{\infty}$ norm of their
 x = chebyshev_distance(v, w);
 ```
 
-The `discrete_distance` method, when applied to two vectors `v`, `w`, will return `1` if at least one component of `v - w` has absolute value greater than `tolerance`; if not it will return `0`
+The `discrete_distance` method, when applied to two vectors `v`, `w`, will return `1` if at least one component of `v - w` has absolute value greater than `tolerance`; if not it will return `0`:
 
 ```cpp
 x = discrete_distance(v, w, tolerance);
