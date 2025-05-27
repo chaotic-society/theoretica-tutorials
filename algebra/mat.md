@@ -91,7 +91,7 @@ M_ij = myMatrix(i, j);
 
 The `at` method enables bound checking: it throws an exception if `i, j > N`. These methods also allow to modify the (i, j) component:
 
-```cpp
+```
 // Standard method
 myMatrix(i, j) = M_ij;
 
