@@ -106,6 +106,28 @@ B = rotation_3d_xaxis(theta, 4, 4);
 C = rotation_3d_xaxis(theta, 4, 4);
 ```
 
+Let us consider how to project a 3-dimensional object on a plane interposed between said object and the observer (positioned on the origin). Choosing the axis passing through the origin and perpendicular to the plane as the z-axis; a square frustum can be built around the object, using $l$, $r$, $t$, $b$, $n$, $f$ as the values for the left, right, top, bottom, near, far boundaries.
+
+<p align="center">
+  <img width="600" height="450" src="https://github.com/chaotic-society/theoretica-tutorials/blob/main/algebra/Perspective%20frustum.png">
+</p>
+
+This projection is called a perspective projection, and can be represented as the following N-dimensional matrix:
+
+```math
+\begin{pmatrix}
+\frac{2n}{r-l} & 0 & \frac{r+l}{r-l} & 0 & \vec{0} \\
+0 & \frac{2n}{t-b} & \frac{t+b}{t-b} & 0 & \vec{0}  \\
+0 & 0 & -\frac{f+n}{f-n} & -\frac{2fn}{f-n} & \vec{0} \\
+0 & 0 & -1 & 0 & \vec{0} \\
+\vec{0}^T & \vec{0}^T & \vec{0}^T & \vec{0}^T & \mathbb{1} \\
+\end{pmatrix}
+```
+
+where $l$, $r$, $t$, $b$, $n$, $f$ are the left, right, top, bottom, near, far boundaries of the view frustum.
+
+The  `rotation_3d` method returns said matrix when given the `left`, `right`, `top`, `bottom`, `near`, `far` boundaries positions.
+
 
 
 
