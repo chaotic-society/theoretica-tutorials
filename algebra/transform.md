@@ -106,7 +106,7 @@ B = rotation_3d_xaxis(theta, 4, 4);
 C = rotation_3d_xaxis(theta, 4, 4);
 ```
 
-Let us consider how to project a 3-dimensional object on a plane (called near plane) interposed between said object and the observer (positioned on the origin). Choosing the axis passing through the origin and perpendicular to the plane as the z-axis; a rectangular frustum can be built around the object, using $l$, $r$, $t$, $b$, $n$, $f$ as the values for the left, right, top, bottom, near, far boundaries.
+Let us consider how to project a 3-dimensional object on a plane (called near plane) interposed between said object and the observer (positioned on the origin). Choosing the axis passing through the origin and perpendicular to the plane as the z-axis; a rectangular frustum can be built around the object, using $l$, $r$, $b$, $t$, $n$, $f$ as the values for the left, right, bottom, top, near, far boundaries.
 
 <p align="center">
   <img width="600" height="450" src="https://github.com/chaotic-society/theoretica-tutorials/blob/main/algebra/Perspective%20frustum.png">
@@ -124,9 +124,17 @@ This projection is called a perspective projection, and can be represented as th
 \end{pmatrix}
 ```
 
-where $l$, $r$, $t$, $b$, $n$, $f$ are the left, right, top, bottom, near, far boundaries of the view frustum.
+where $l$, $r$, $b$, $t$, $n$, $f$ are the left, right, bottom, top, near, far boundaries of the view frustum.
 
-The  `rotation_3d` method returns said matrix when given the `left`, `right`, `top`, `bottom`, `near`, `far` boundaries positions.
+The  `perspective` method returns said matrix when given the `left`, `right`, `bottom`, `top`, `near`, `far` boundaries positions. The `rows` and `cols` parameters are only needed for dynamically allocated matrix types:
+
+```cpp
+// Statically allocated 4x4 matrix
+A = perspective(left, right, bottom, top, near, far);
+
+// Dynamically allocated 4x4 matrix
+A = perspective(left, right, bottom, top, near, far, 4, 4);
+```
 
 
 
